@@ -1,0 +1,1 @@
+Movie Recommendation Interface in PYthon using web scraping methods brom BeautifulSoup package. Several filters are present including Actor name and Movie Genre. Data is scraped from the Imdb movie database
