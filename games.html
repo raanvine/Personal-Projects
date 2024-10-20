@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Games</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="ContactPage.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <div>
+        <form onsubmit="playGame(); return false;">
+            <label>
+                <input type="radio" name="choice" value="Rock"> Rock
+            </label>
+            <label>
+                <input type="radio" name="choice" value="Paper"> Paper
+            </label>
+            <label>
+                <input type="radio" name="choice" value="Scissors"> Scissors
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+        <div>
+            <div style="float: left; border: 1px solid black; width: 45%; margin: 10px;">
+                <p>You Chose: <span id="user-choice"></span></p>
+            </div>
+            <div style="float: right; border: 1px solid black; width: 45%; margin: 10px;">
+                <p>Computer Chose: <span id="computer-choice"></span></p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Vineet Ravichandran</p>
+    </footer>
+
+    <script>
+        function playGame() {  
+            const choices = ["Rock", "Paper", "Scissors", "Spock"];
+            const userChoice = document.querySelector('input[name="choice"]:checked').value;
+            const computerChoice = choices[Math.floor(Math.random() * 4)];
+
+            document.getElementById("user-choice").textContent = userChoice;
+            document.getElementById("computer-choice").textContent = computerChoice;
+
+            if (computerChoice === "Spock" || (computerChoice === "Rock" && userChoice === "Scissors") ||
+                (computerChoice === "Scissors" && userChoice === "Paper") ||
+                (computerChoice === "Paper" && userChoice === "Rock")) {
+                alert("You Lose");
+                document.body.style.backgroundColor = "red"; //changes color to red if you lose 
+            } else if (computerChoice === userChoice) {
+                alert("Tie");
+                document.body.style.backgroundColor = "blue";
+            } else {
+                alert("You Win");
+                document.body.style.backgroundColor = "green";
+            }
+        }
+    </script>
+</body>
+</html>
